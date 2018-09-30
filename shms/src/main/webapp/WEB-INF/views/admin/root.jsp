@@ -15,8 +15,12 @@
 <section id="admin-body">
 	<section id="section-right" class="card">
 		<ul class="list-group">
-			<li class="list-group-item"><a href="<c:url value="/patients"/>">
-					Patients</a></li>
+			<li class="list-group-item"><a
+				href="<c:url value="/orderDetails"/>"> Order Details</a></li>
+
+
+			<li class="list-group-item"><a
+				href="<c:url value="/customers"/>">Customers</a></li>
 
 			<li class="list-group-item"><a
 				href="<c:url value="/patientVisits"/>"> PV</a></li>
@@ -24,8 +28,7 @@
 				href="<c:url value="/operations"/>">Operations</a></li>
 
 
-			<li class="list-group-item"><a
-				href="<c:url value="/doctors"/>">Doctors</a></li>
+			<li class="list-group-item"><a href="<c:url value="/doctors"/>">Doctors</a></li>
 
 			<li class="list-group-item"><a
 				href="<c:url value="/expenses"/>?from=${currentDate}&to=${tomorrow}">

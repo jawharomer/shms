@@ -66,11 +66,11 @@
 
 
 
-	<!-- Patients -->
-	<definition name="patients" extends="adminRoot">
-		<put-attribute name="title" value="Patient" />
+	<!-- OrderDetails -->
+	<definition name="orderDetails" extends="adminRoot">
+		<put-attribute name="title" value="orderDetails" />
 		<put-attribute name="adminBody"
-			value="/WEB-INF/views/patient/patients.jsp" cascade="true" />
+			value="/WEB-INF/views/orderDetail/orderDetails.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles"
 			inherit="true">
 			<add-attribute value="patients" />
@@ -79,6 +79,23 @@
 		<put-list-attribute name="requiredJSFiles"
 			inherit="true">
 			<add-attribute value="patients" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Customers -->
+	<definition name="customers" extends="adminRoot">
+		<put-attribute name="title" value="orderDetails" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customer/customers.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles"
+			inherit="true">
+			<add-attribute value="customers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles"
+			inherit="true">
+			<add-attribute value="customers" />
 		</put-list-attribute>
 	</definition>
 

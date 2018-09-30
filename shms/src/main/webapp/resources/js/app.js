@@ -1,7 +1,12 @@
-var $$ContextURL = "/bhms";
+var $$ContextURL = "/shms";
 
 
 $.datepicker.setDefaults({ changeMonth: true,changeYear: true,yearRange: "-100:+0"});
+
+
+$( function() {
+    $( document ).tooltip();
+  } );
 
 function cusConfirm() {
 	var deferred=$.Deferred();

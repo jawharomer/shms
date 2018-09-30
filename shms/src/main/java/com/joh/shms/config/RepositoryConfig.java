@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = { "com.joh.bhms.dao" })
+@EnableJpaRepositories(basePackages = { "com.joh.shms.dao" })
 @PropertySource(value = { "classpath:application.properties" })
 public class RepositoryConfig {
 
@@ -32,7 +32,7 @@ public class RepositoryConfig {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource());
-		sessionFactory.setPackagesToScan(new String[] { "com.joh.bhms.model" });
+		sessionFactory.setPackagesToScan(new String[] { "com.joh.shms.model" });
 		sessionFactory.setHibernateProperties(hibernateProperties());
 		return sessionFactory;
 	}
@@ -54,7 +54,7 @@ public class RepositoryConfig {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(dataSource);
 		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-		entityManagerFactoryBean.setPackagesToScan("com.joh.bhms.model");
+		entityManagerFactoryBean.setPackagesToScan("com.joh.shms.model");
 		entityManagerFactoryBean.setJpaProperties(hibernateProperties());
 		return entityManagerFactoryBean;
 	}
@@ -72,6 +72,7 @@ public class RepositoryConfig {
 	}
 
 	private Properties hibernateProperties() {
+		
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
 		properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));

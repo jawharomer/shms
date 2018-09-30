@@ -23,8 +23,8 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.joh.bhms.controller", "com.joh.bhms.service", "com.joh.bhms.commons",
-		"com.joh.bhms.dao" })
+@ComponentScan(basePackages = { "com.joh.shms.controller", "com.joh.shms.service", "com.joh.shms.commons",
+		"com.joh.shms.dao" })
 @Import(value = RepositoryConfig.class)
 public class SpringContextConfiguraror extends WebMvcConfigurerAdapter {
 
