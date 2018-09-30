@@ -98,6 +98,28 @@
 			<add-attribute value="customers" />
 		</put-list-attribute>
 	</definition>
+	
+	
+	
+	
+	<!-- ProductCategories -->
+	<definition name="productCategories" extends="adminRoot">
+		<put-attribute name="title" value="orderDetails" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/productCategory/productCategories.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles"
+			inherit="true">
+			<add-attribute value="productCategories" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles"
+			inherit="true">
+			<add-attribute value="productCategories" />
+		</put-list-attribute>
+	</definition>
+	
+	
+	<!-- ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
 
 
 

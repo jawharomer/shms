@@ -23,6 +23,9 @@
 				href="<c:url value="/customers"/>">Customers</a></li>
 
 			<li class="list-group-item"><a
+				href="<c:url value="/productCategories"/>">ProductCategories</a></li>
+
+			<li class="list-group-item"><a
 				href="<c:url value="/patientVisits"/>"> PV</a></li>
 			<li class="list-group-item"><a
 				href="<c:url value="/operations"/>">Operations</a></li>
