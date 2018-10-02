@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,8 +51,7 @@ public class Order {
 
 	@Valid()
 	@Size(min = 1, message = "order detail is not set")
-	@OneToMany()
-	@JoinColumn(name = "I_ORDER")
+	@OneToMany(mappedBy = "order")
 	private List<OrderDetail> orderDetails = new ArrayList<>();
 
 	@Column(name = "TOTAL_PAYMENT")

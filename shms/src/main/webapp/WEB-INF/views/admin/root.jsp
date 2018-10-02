@@ -29,6 +29,10 @@
 				href="<c:url value="/orders"/>?from=${currentDate}&to=${tomorrow}">
 					Orders</a></li>
 
+			<li class="list-group-item"><a
+				href="<c:url value="/orderDetails"/>?from=${currentDate}&to=${tomorrow}">
+					Stock</a></li>
+
 
 			<li class="list-group-item"><a
 				href="<c:url value="/productCategories"/>">ProductCategories</a></li>

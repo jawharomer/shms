@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "ORDER_DETAILS")
 public class OrderDetail {
@@ -30,7 +32,7 @@ public class OrderDetail {
 	@Valid()
 	@ManyToOne()
 	@JoinColumn(name = "I_PRODUCT", nullable = false)
-	private Product product;
+	protected Product product;
 
 	@NotNull(message = "quantity is null")
 	@Column(name = "QUANTITY")
@@ -50,8 +52,13 @@ public class OrderDetail {
 	@Temporal(TemporalType.DATE)
 	private Date expirationDate;
 
-	@Column(name = "SOLD_AMOUNT", columnDefinition = "INT DEFAULT 0")
+	@Column(name = "SOLD_AMOUNT")
 	private Integer soldAmount;
+
+	@JsonIgnore
+	@ManyToOne()
+	@JoinColumn(name = "I_ORDER",nullable=false)
+	private Order order;
 
 	public Integer getId() {
 		return id;
@@ -107,6 +114,14 @@ public class OrderDetail {
 
 	public void setSoldAmount(Integer soldAmount) {
 		this.soldAmount = soldAmount;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	@Override

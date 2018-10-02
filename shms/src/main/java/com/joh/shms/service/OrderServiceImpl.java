@@ -26,11 +26,14 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Order save(Order order) {
 
+		Order savedOrder = orderDAO.save(order);
 		order.getOrderDetails().stream().forEach(e -> {
+			e.setOrder(savedOrder);
 			orderDetailService.save(e);
 		});
 
-		return orderDAO.save(order);
+		return savedOrder;
+
 	}
 
 	@Override
@@ -60,6 +63,7 @@ public class OrderServiceImpl implements OrderService {
 		}
 
 		order.getOrderDetails().stream().filter(e -> e.getId() == null).forEach(e -> {
+			e.setOrder(order);
 			orderDetailService.save(e);
 		});
 

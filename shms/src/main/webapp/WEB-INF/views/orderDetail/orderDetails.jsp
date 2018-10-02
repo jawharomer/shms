@@ -14,7 +14,7 @@
 	</div>
 
 	<div class="p-1">
-		<form action="<c:url value="/incomes" />">
+		<form action="<c:url value="/orderDetails" />">
 			<table class="w-100">
 				<tr>
 					<td>
@@ -52,58 +52,48 @@
 	</div>
 
 
-	<table id="incomes-table" class="display nowrap">
+	<table id="order-details-table" class="display nowrap">
 		<thead>
 			<tr>
-				<th>#</th>
+				<th>OrderID</th>
 				<th>Time</th>
-				<th>Amount</th>
-				<th>Category</th>
-				<th>ReceivedFrom</th>
-				<th>Reference</th>
-				<th>Note</th>
-				<th class="cus-not-export">F</th>
+				<th>P-Code</th>
+				<th>P-Name</th>
+				<th>QYT</th>
+				<th>Payment</th>
+				<th>PROD-Date</th>
+				<th>EXP-Date</th>
+				<th>Sold QYT</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:set var="totalAmount" value="${0}" />
-			<c:forEach items="${incomes}" var="item">
+			<c:forEach items="${orderDetails}" var="item">
 				<tr>
-					<td>${item.id}</td>
-					<td><fmt:formatDate value="${item.time}"
+					<td>${item.order.id}</td>
+					<td><fmt:formatDate value="${item.order.orderTime}"
 							pattern="yyyy-MM-dd hh:mm:ss" /></td>
-					<td><fmt:formatNumber value="${item.amount}"
-							maxFractionDigits="2"></fmt:formatNumber></td>
-					<td>${item.incomeCategory.name}</td>
-					<td>${item.receivedFrom}</td>
-					<td>${item.reference}</td>
-					<td class="cus-note-td" title="${item.note}">${item.note}</td>
-					<td>
-						<button class="btn btn-sm btn-danger"
-							onclick="deleteIncome(${item.id})">
-							<i class="fa fa-times"></i>
-						</button> <a class="btn btn-sm btn-info"
-						href="<c:url value="/incomes/"/>${item.id}"> <i
-							class="fa fa-eye"></i>
-					</a>
-					</td>
-
-					<c:set var="totalAmount" value="${totalAmount+item.amount}" />
+					<td>${item.product.code}</td>
+					<td>${item.product.name}</td>
+					<td>${item.quantity}</td>
+					<td>${item.paymentAmount}</td>
+					<td>${item.productionDate}</td>
+					<td>${item.expirationDate}</td>
+					<td>${item.soldAmount}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 		<tfoot>
 			<tr>
-				<th>#</th>
+				<th>OrderID</th>
 				<th>Time</th>
-				<th>Amount</th>
-				<th>Category</th>
-				<th>ReceivedFrom</th>
-				<th>Reference</th>
-				<th>Note</th>
-				<th class="cus-not-search">&nbsp;</th>
+				<th>P-Code</th>
+				<th>P-Name</th>
+				<th>QYT</th>
+				<th>Payment</th>
+				<th>PROD-Date</th>
+				<th>EXP-Date</th>
+				<th>Sold QYT</th>
 			</tr>
-
 		</tfoot>
 
 	</table>

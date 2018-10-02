@@ -1,5 +1,8 @@
 package com.joh.shms.service;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +34,9 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 			orderDetail.setProduct(checkProduct);
 		}
 
+		if (orderDetail.getSoldAmount() == null)
+			orderDetail.setSoldAmount(0);
+
 		return orderDetailDAO.save(orderDetail);
 	}
 
@@ -43,6 +49,11 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 			throw new CusDataIntegrityViolationException(
 					"can not remove this OrderDetail  code=" + orderDetail.getProduct().getCode());
 		}
+	}
+
+	@Override
+	public List<OrderDetail> findAllByOrderTime(Date from, Date to) {
+		return orderDetailDAO.findAllByOrderOrderTimeBetween(from, to);
 	}
 
 }

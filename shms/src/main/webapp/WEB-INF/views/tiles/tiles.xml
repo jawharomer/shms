@@ -72,12 +72,12 @@
 			value="/WEB-INF/views/orderDetail/orderDetails.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles"
 			inherit="true">
-			<add-attribute value="patients" />
+			<add-attribute value="orderDetails" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles"
 			inherit="true">
-			<add-attribute value="patients" />
+			<add-attribute value="orderDetails" />
 		</put-list-attribute>
 	</definition>
 
@@ -151,8 +151,8 @@
 			<add-attribute value="addOrder" />
 		</put-list-attribute>
 	</definition>
-	
-	
+
+
 	<!--EditOrder -->
 	<definition name="editOrder" extends="adminRoot">
 		<put-attribute name="title" value="orderDetails" />
@@ -168,7 +168,7 @@
 			<add-attribute value="editOrder" />
 		</put-list-attribute>
 	</definition>
-	
+
 	<!--Orders -->
 	<definition name="getAllOrder" extends="adminRoot">
 		<put-attribute name="title" value="Orders" />

@@ -37,6 +37,9 @@ public class CustomerOrder {
 	@CreationTimestamp
 	@ColumnDefault("CURRENT_TIMESTAMP")
 	private Date orderTime;
+	
+	@Column(name = "TOTAL_PAYMENT")
+	private Double totalPayment;
 
 	@Column(name = "NOTE")
 	private String note;
