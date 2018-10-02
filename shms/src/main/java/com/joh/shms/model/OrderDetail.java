@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,13 +26,17 @@ public class OrderDetail {
 	@Column(name = "I_ORDER_DETAIL")
 	private Integer id;
 
+	@NotNull(message = "product is null")
+	@Valid()
 	@ManyToOne()
 	@JoinColumn(name = "I_PRODUCT", nullable = false)
 	private Product product;
 
+	@NotNull(message = "quantity is null")
 	@Column(name = "QUANTITY")
 	private Integer quantity;
 
+	@NotNull(message = "payment amount is null")
 	@Column(name = "paymentAmount")
 	private Double paymentAmount;
 
@@ -44,7 +50,7 @@ public class OrderDetail {
 	@Temporal(TemporalType.DATE)
 	private Date expirationDate;
 
-	@Column(name = "SOLD_AMOUNT")
+	@Column(name = "SOLD_AMOUNT", columnDefinition = "INT DEFAULT 0")
 	private Integer soldAmount;
 
 	public Integer getId() {

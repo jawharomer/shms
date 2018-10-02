@@ -16,11 +16,11 @@ public class Vendor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "I_VENDOR")
-	private int id;
+	private Integer id;
 
 	@NotBlank(message = "Full Name is blank")
-	@Column(name = "FULL_NAME")
-	private String fullName;
+	@Column(name = "VENDOR_NAME")
+	private String name;
 
 	@NotBlank(message = "Phone is blank")
 	@Column(name = "PHONE")
@@ -33,20 +33,20 @@ public class Vendor {
 	@Column(name = "NOTE")
 	private String note;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getFullName() {
-		return fullName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPhone() {
@@ -75,8 +75,8 @@ public class Vendor {
 
 	@Override
 	public String toString() {
-		return "Vendor [id=" + id + ", fullName=" + fullName + ", phone=" + phone + ", address=" + address + ", note="
-				+ note + "]";
+		return "Vendor [id=" + id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", note=" + note
+				+ "]";
 	}
 
 }

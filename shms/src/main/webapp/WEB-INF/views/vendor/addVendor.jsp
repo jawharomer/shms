@@ -4,8 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <div>
-	<sf:form id="add-operation-form" method="POST" commandName="operation"
-		onsubmit="addOperation(event)">
+	<sf:form id="add-vendor-form" method="POST"
+		commandName="vendor" onsubmit="addVendor(event)">
 		<table class="w-100">
 			<tbody>
 
@@ -17,10 +17,26 @@
 				</tr>
 
 				<tr>
-					<td>Price</td>
+					<td>Phone</td>
 					<td><sf:input cssClass="form-control form-control-sm"
-							path="price" /></td>
-					<td><sf:errors path="price" /></td>
+							path="phone" /></td>
+					<td><sf:errors path="phone" /></td>
+				</tr>
+
+
+				<tr>
+					<td>Address</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="address" /></td>
+					<td><sf:errors path="address" /></td>
+				</tr>
+				
+				
+				<tr>
+					<td>Note</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="note" /></td>
+					<td><sf:errors path="note" /></td>
 				</tr>
 
 				<tr>
@@ -44,16 +60,16 @@
 
 
 <script>
-	function addOperation(event) {
+	function addVendor(event) {
 		event.preventDefault();
-		console.log("addOperation->fired");
+		console.log("addVendor->fired");
 
-		var data = $("#add-operation-form").serializeJSON();
+		var data = $("#add-vendor-form").serializeJSON();
 		console.log("data=", data);
 
 		$.ajax({
 			type : "POST",
-			url : "<c:url value="/operations/add"/>",
+			url : "<c:url value="/vendors/add"/>",
 			data : JSON.stringify(data),
 			contentType : "application/json",
 			success : function(response) {

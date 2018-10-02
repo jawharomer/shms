@@ -4,10 +4,12 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <div>
-	<sf:form id="edit-product-category-form" method="POST"
-		commandName="productCategory" onsubmit="editProductCategory(event)">
+	<sf:form id="edit-vendor-form" method="POST" commandName="vendor"
+		onsubmit="editVendor(event)">
+
 
 		<sf:input type="hidden" path="id" />
+
 		<table class="w-100">
 			<tbody>
 
@@ -16,6 +18,29 @@
 					<td><sf:input cssClass="form-control form-control-sm"
 							path="name" /></td>
 					<td><sf:errors path="name" /></td>
+				</tr>
+
+				<tr>
+					<td>Phone</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="phone" /></td>
+					<td><sf:errors path="phone" /></td>
+				</tr>
+
+
+				<tr>
+					<td>Address</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="address" /></td>
+					<td><sf:errors path="address" /></td>
+				</tr>
+
+
+				<tr>
+					<td>Note</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="note" /></td>
+					<td><sf:errors path="note" /></td>
 				</tr>
 
 				<tr>
@@ -39,16 +64,16 @@
 
 
 <script>
-	function editProductCategory(event) {
+	function editVendor(event) {
 		event.preventDefault();
-		console.log("editProductCategory->fired");
+		console.log("editVendor->fired");
 
-		var data = $("#edit-product-category-form").serializeJSON();
+		var data = $("#edit-vendor-form").serializeJSON();
 		console.log("data=", data);
 
 		$.ajax({
 			type : "POST",
-			url : "<c:url value="/productCategories/edit"/>",
+			url : "<c:url value="/vendors/edit"/>",
 			data : JSON.stringify(data),
 			contentType : "application/json",
 			success : function(response) {

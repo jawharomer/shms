@@ -4,8 +4,8 @@
 
 <div>
 	<div class="py-2">
-		<h3>Product Categories</h3>
-		<button class="btn btn-success" onclick="getAddingProductCategory()">
+		<h3>Vendors</h3>
+		<button class="btn btn-success" onclick="getAddingVendor()">
 			<i class="fa fa-plus"></i>
 		</button>
 
@@ -16,22 +16,28 @@
 			<tr>
 				<th>#</th>
 				<th>Name</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th>Note</th>
 				<th>F</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${productCategories}" var="item">
+			<c:forEach items="${vendors}" var="item">
 				<tr>
 					<td>${item.id}</td>
 					<td>${item.name}</td>
+					<td>${item.phone}</td>
+					<td>${item.address}</td>
+					<td class="cus-note-id" title="${item.note}">${item.note}</td>
 					<td>
 						<button class="btn btn-sm btn-danger"
-							onclick="deleteProductCategory(${item.id})">
+							onclick="deleteVendor(${item.id})">
 							<i class="fa fa-times"></i>
 						</button>
 
 						<button class="btn btn-sm btn-warning"
-							onclick="getEditingProductCategory(${item.id})">
+							onclick="getEditingVendor(${item.id})">
 							<i class="fa fa-edit"></i>
 						</button>
 

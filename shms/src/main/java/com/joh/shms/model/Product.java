@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "PRODUCTS")
 public class Product {
@@ -18,9 +20,11 @@ public class Product {
 	@Column(name = "I_PRODUCT")
 	private Integer id;
 
+	@NotBlank(message = "code is blank")
 	@Column(name = "CODE", nullable = false, unique = true)
 	private String code;
 
+	@NotBlank(message = "name is blank")
 	@Column(name = "PRODUCT_NAME", nullable = false)
 	private String name;
 

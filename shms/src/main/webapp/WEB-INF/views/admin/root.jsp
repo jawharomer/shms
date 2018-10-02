@@ -22,6 +22,14 @@
 			<li class="list-group-item"><a
 				href="<c:url value="/customers"/>">Customers</a></li>
 
+			<li class="list-group-item"><a href="<c:url value="/vendors"/>">Vendors</a></li>
+
+
+			<li class="list-group-item"><a
+				href="<c:url value="/orders"/>?from=${currentDate}&to=${tomorrow}">
+					Orders</a></li>
+
+
 			<li class="list-group-item"><a
 				href="<c:url value="/productCategories"/>">ProductCategories</a></li>
 
@@ -33,9 +41,7 @@
 
 			<li class="list-group-item"><a href="<c:url value="/doctors"/>">Doctors</a></li>
 
-			<li class="list-group-item"><a
-				href="<c:url value="/expenses"/>?from=${currentDate}&to=${tomorrow}">
-					Expenses</a></li>
+
 			<li class="list-group-item"><a
 				href="<c:url value="/incomeCategories"/>"> Income Categories</a></li>
 
