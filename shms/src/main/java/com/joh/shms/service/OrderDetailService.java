@@ -13,4 +13,6 @@ public interface OrderDetailService {
 
 	List<OrderDetail> findAllByOrderTime(Date from, Date to);
 
+	OrderDetail findFirstByProductCode(String code);
+
 }

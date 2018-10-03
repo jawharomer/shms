@@ -1,6 +1,8 @@
 package com.joh.shms.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -37,12 +42,17 @@ public class CustomerOrder {
 	@CreationTimestamp
 	@ColumnDefault("CURRENT_TIMESTAMP")
 	private Date orderTime;
-	
+
 	@Column(name = "TOTAL_PAYMENT")
 	private Double totalPayment;
 
 	@Column(name = "NOTE")
 	private String note;
+
+	@Valid()
+	@Size(min = 1, message = "customerOrderDetail is not set")
+	@OneToMany(mappedBy = "customerOrder")
+	private List<CustomerOrderDetail> customerOrderDetails = new ArrayList<>();
 
 	public Integer getId() {
 		return id;
@@ -84,10 +94,27 @@ public class CustomerOrder {
 		this.note = note;
 	}
 
+	public Double getTotalPayment() {
+		return totalPayment;
+	}
+
+	public void setTotalPayment(Double totalPayment) {
+		this.totalPayment = totalPayment;
+	}
+
+	public List<CustomerOrderDetail> getCustomerOrderDetails() {
+		return customerOrderDetails;
+	}
+
+	public void setCustomerOrderDetails(List<CustomerOrderDetail> customerOrderDetails) {
+		this.customerOrderDetails = customerOrderDetails;
+	}
+
 	@Override
 	public String toString() {
 		return "CustomerOrder [id=" + id + ", customer=" + customer + ", receivedBy=" + receivedBy + ", orderTime="
-				+ orderTime + ", note=" + note + "]";
+				+ orderTime + ", totalPayment=" + totalPayment + ", note=" + note + ", customerOrderDetails="
+				+ customerOrderDetails + "]";
 	}
 
 }

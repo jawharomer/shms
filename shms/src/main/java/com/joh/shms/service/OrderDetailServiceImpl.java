@@ -56,4 +56,9 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 		return orderDetailDAO.findAllByOrderOrderTimeBetween(from, to);
 	}
 
+	@Override
+	public OrderDetail findFirstByProductCode(String code) {
+		return orderDetailDAO.findByProductCode(code);
+	}
+
 }

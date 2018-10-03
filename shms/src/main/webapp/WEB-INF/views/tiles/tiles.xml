@@ -186,7 +186,35 @@
 	</definition>
 
 
-	<!-- ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
+	<!--CustomerOrder -->
+	<!--CustomerOrder -->
+	<!--CustomerOrder -->
+	<!--CustomerOrder -->
+	<!--CustomerOrder -->
+
+
+	<!--AddCustomerOrder -->
+	<definition name="addCustomerOrder" extends="adminRoot">
+		<put-attribute name="title" value="orderDetails" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/addCustomerOrder.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles"
+			inherit="true">
+			<add-attribute value="addCustomerOrder" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles"
+			inherit="true">
+			<add-attribute value="addCustomerOrder" />
+		</put-list-attribute>
+	</definition>
+
+
+
+
+
+	<!-- DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD -->
 
 
 

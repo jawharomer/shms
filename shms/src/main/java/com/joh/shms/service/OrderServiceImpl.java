@@ -24,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
 	private OrderDetailService orderDetailService;
 
 	@Override
+	@Transactional
 	public Order save(Order order) {
 
 		Order savedOrder = orderDAO.save(order);

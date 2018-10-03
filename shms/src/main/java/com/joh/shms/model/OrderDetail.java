@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -57,9 +58,19 @@ public class OrderDetail {
 
 	@JsonIgnore
 	@ManyToOne()
-	@JoinColumn(name = "I_ORDER",nullable=false)
+	@JoinColumn(name = "I_ORDER", nullable = false)
 	private Order order;
 
+	@PrePersist
+	public void prePersis() {
+		if (this.soldAmount == null) {
+			this.soldAmount = 0;
+		}
+	}
+	
+	///
+
+	
 	public Integer getId() {
 		return id;
 	}
