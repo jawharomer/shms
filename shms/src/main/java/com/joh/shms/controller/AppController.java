@@ -14,5 +14,7 @@ public class AppController {
 		logger.info("login->fired");
 		return "login";
 	}
+	
+	
 
 }

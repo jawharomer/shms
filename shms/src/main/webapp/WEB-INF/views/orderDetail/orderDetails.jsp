@@ -6,7 +6,7 @@
 
 <div>
 	<div class="py-2">
-		<h3>OrderDetails</h3>
+		<h3>Stock</h3>
 		<button class="btn btn-success" onclick="getAddingIncome()">
 			<i class="fa fa-plus"></i>
 		</button>

@@ -67,6 +67,11 @@ a {
 	white-space: nowrap;
 }
 
+#cus-table-p0 tr td {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
 @media print {
 	@page {
 		margin: 0;

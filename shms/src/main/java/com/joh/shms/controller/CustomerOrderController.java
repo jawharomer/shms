@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joh.shms.exception.CusDataIntegrityViolationException;
 import com.joh.shms.model.Customer;
 import com.joh.shms.model.CustomerOrder;
+import com.joh.shms.model.Order;
 import com.joh.shms.service.CustomerOrderService;
 import com.joh.shms.service.CustomerService;
 
@@ -37,6 +38,20 @@ public class CustomerOrderController {
 
 	@Autowired
 	private CustomerService customerService;
+
+	@GetMapping(path = "/{id}")
+	public String getCustomerOrder(@PathVariable int id, Model model) {
+		logger.info("getCustomerOrder->fired");
+		logger.info("customerOrderId=" + id);
+
+		CustomerOrder customerOrder = customerOrderService.findOne(id);
+
+		logger.info("customerOrder=" + customerOrder);
+
+		model.addAttribute("customerOrder", customerOrder);
+
+		return "getCustomerOrder";
+	}
 
 	@GetMapping()
 	public String getAllCustomerOrder(@RequestParam() @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,

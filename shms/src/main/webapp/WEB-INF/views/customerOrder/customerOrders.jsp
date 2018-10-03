@@ -69,7 +69,10 @@
 							<button class="btn btn-sm btn-outline-danger"
 								onclick="deleteCustomerOrder(${item.id})">
 								<i class="fa fa-times"></i>
-							</button></td>
+							</button> <a class="btn btn-sm btn-outline-info"
+							href="<c:url value="/customerOrders/" />${item.id}"> <i
+								class="fa fa-eye"></i>
+						</a></td>
 					</tr>
 
 

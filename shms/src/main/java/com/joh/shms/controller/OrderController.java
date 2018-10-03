@@ -62,6 +62,20 @@ public class OrderController {
 
 	}
 
+	@GetMapping(path = "/{id}")
+	public String getOrder(@PathVariable int id, Model model) {
+		logger.info("getOrder->fired");
+		logger.info("orderId=" + id);
+
+		Order order = orderService.findOne(id);
+
+		logger.info("order=" + order);
+
+		model.addAttribute("order", order);
+
+		return "getOrder";
+	}
+
 	@GetMapping(path = "/add")
 	public String getAddingOrder(Model model) throws JsonProcessingException {
 		logger.info("getAddingOrder->fired");

@@ -15,14 +15,10 @@
 <section id="admin-body">
 	<section id="section-right" class="card">
 		<ul class="list-group">
-			<li class="list-group-item"><a
-				href="<c:url value="/orderDetails"/>"> Order Details</a></li>
 
 
 			<li class="list-group-item"><a
-				href="<c:url value="/customers"/>">Customers</a></li>
-
-			<li class="list-group-item"><a href="<c:url value="/vendors"/>">Vendors</a></li>
+				href="<c:url value="/orders/add"/>">Order</a></li>
 
 
 			<li class="list-group-item"><a
@@ -33,36 +29,20 @@
 				href="<c:url value="/orderDetails"/>?from=${currentDate}&to=${tomorrow}">
 					Stock</a></li>
 
-
 			<li class="list-group-item"><a
-				href="<c:url value="/customerOrders/add"/>">Add CustomerOrder</a></li>
+				href="<c:url value="/customerOrders/add"/>">CustomerOrder</a></li>
 
 			<li class="list-group-item"><a
 				href="<c:url value="/customerOrders"/>?from=${currentDate}&to=${tomorrow}">
 					CustomerOrders</a></li>
 
+			<li class="list-group-item"><a
+				href="<c:url value="/customers"/>">Customers</a></li>
+
+			<li class="list-group-item"><a href="<c:url value="/vendors"/>">Vendors</a></li>
 
 			<li class="list-group-item"><a
 				href="<c:url value="/productCategories"/>">ProductCategories</a></li>
-
-			<li class="list-group-item"><a
-				href="<c:url value="/patientVisits"/>"> PV</a></li>
-			<li class="list-group-item"><a
-				href="<c:url value="/operations"/>">Operations</a></li>
-
-
-			<li class="list-group-item"><a href="<c:url value="/doctors"/>">Doctors</a></li>
-
-
-			<li class="list-group-item"><a
-				href="<c:url value="/incomeCategories"/>"> Income Categories</a></li>
-
-
-			<li class="list-group-item"><a
-				href="<c:url value="/expenseCategories"/>"> Expense Categories</a></li>
-
-
-
 		</ul>
 	</section>
 
