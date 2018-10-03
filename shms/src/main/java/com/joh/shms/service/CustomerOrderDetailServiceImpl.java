@@ -36,8 +36,10 @@ public class CustomerOrderDetailServiceImpl implements CustomerOrderDetailServic
 
 	@Transactional
 	@Override
-	public void delete(int id) {
-		customerOrderDetailDAO.delete(id);
+	public void delete(CustomerOrderDetail customerOrderDetail) {
+
+		orderDetailDAO.stockUp(customerOrderDetail.getQuantity(), customerOrderDetail.getOrderDetail().getId());
+		customerOrderDetailDAO.delete(customerOrderDetail.getId());
 	}
 
 	@Override

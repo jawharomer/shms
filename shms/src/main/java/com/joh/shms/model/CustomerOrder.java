@@ -16,10 +16,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.joh.shms.validator.CustomerOrderValidation;
 
 @Entity
 @Table(name = "CUSTOMER_ORDERS")
@@ -30,10 +34,13 @@ public class CustomerOrder {
 	@Column(name = "I_CUSTOMER_ORDER")
 	private Integer id;
 
+	@NotNull(groups = { CustomerOrderValidation.Insert.class })
+	@Valid
 	@ManyToOne()
 	@JoinColumn(name = "I_CUSTOMER", nullable = false)
 	private Customer customer;
 
+	@NotBlank(groups = { CustomerOrderValidation.Insert.class })
 	@JoinColumn(name = "RECEIVED_BY")
 	private String receivedBy;
 
@@ -42,9 +49,6 @@ public class CustomerOrder {
 	@CreationTimestamp
 	@ColumnDefault("CURRENT_TIMESTAMP")
 	private Date orderTime;
-
-	@Column(name = "TOTAL_PAYMENT")
-	private Double totalPayment;
 
 	@Column(name = "NOTE")
 	private String note;
@@ -94,14 +98,6 @@ public class CustomerOrder {
 		this.note = note;
 	}
 
-	public Double getTotalPayment() {
-		return totalPayment;
-	}
-
-	public void setTotalPayment(Double totalPayment) {
-		this.totalPayment = totalPayment;
-	}
-
 	public List<CustomerOrderDetail> getCustomerOrderDetails() {
 		return customerOrderDetails;
 	}
@@ -113,8 +109,7 @@ public class CustomerOrder {
 	@Override
 	public String toString() {
 		return "CustomerOrder [id=" + id + ", customer=" + customer + ", receivedBy=" + receivedBy + ", orderTime="
-				+ orderTime + ", totalPayment=" + totalPayment + ", note=" + note + ", customerOrderDetails="
-				+ customerOrderDetails + "]";
+				+ orderTime + ", note=" + note + ", customerOrderDetails=" + customerOrderDetails + "]";
 	}
 
 }

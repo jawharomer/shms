@@ -68,13 +68,19 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 					.anyMatch(e -> e.getId() == customerOrderDetail.getId());
 
 			if (!isExists) {
-				customerOrderDetailService.delete(customerOrderDetail.getId());
+				customerOrderDetailService.delete(customerOrderDetail);
 			}
 
 		}
 
 		customerOrder.getCustomerOrderDetails().stream().filter(e -> e.getId() == null).forEach(e -> {
 			e.setCustomerOrder(customerOrder);
+			OrderDetail orderDetail = orderDetailService.findFirstByProductCode(e.getProduct().getCode());
+			if (orderDetail == null) {
+				throw new CusDataIntegrityViolationException(
+						"This product is out of the stock now the code=" + e.getProduct().getCode());
+			}
+			e.setOrderDetail(orderDetail);
 			customerOrderDetailService.save(e);
 		});
 
@@ -86,7 +92,7 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 	public void delete(int id) {
 		CustomerOrder customerOrder = customerOrderDAO.findOne(id);
 		customerOrder.getCustomerOrderDetails().stream().forEach(e -> {
-			customerOrderDetailService.delete(e.getId());
+			customerOrderDetailService.delete(e);
 		});
 		customerOrderDAO.delete(id);
 	}

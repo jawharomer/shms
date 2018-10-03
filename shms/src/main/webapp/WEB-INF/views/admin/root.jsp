@@ -35,6 +35,14 @@
 
 
 			<li class="list-group-item"><a
+				href="<c:url value="/customerOrders/add"/>">Add CustomerOrder</a></li>
+
+			<li class="list-group-item"><a
+				href="<c:url value="/customerOrders"/>?from=${currentDate}&to=${tomorrow}">
+					CustomerOrders</a></li>
+
+
+			<li class="list-group-item"><a
 				href="<c:url value="/productCategories"/>">ProductCategories</a></li>
 
 			<li class="list-group-item"><a

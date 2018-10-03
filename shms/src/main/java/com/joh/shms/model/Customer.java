@@ -10,13 +10,15 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.joh.shms.validator.CustomerOrderValidation;
 import com.joh.shms.validator.CustomerValidation;
 
 @Entity
 @Table(name = "CUSTOMERS")
 public class Customer {
 
-	@NotNull(groups = { CustomerValidation.Insert.class })
+	@NotNull(groups = { CustomerOrderValidation.Insert.class,
+			CustomerValidation.Insert.class }, message = "customer  id is null")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "I_CUSTOMER")

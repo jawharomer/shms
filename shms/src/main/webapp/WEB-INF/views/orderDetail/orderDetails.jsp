@@ -64,6 +64,7 @@
 				<th>PROD-Date</th>
 				<th>EXP-Date</th>
 				<th>Sold QYT</th>
+				<th>Remain</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -79,6 +80,7 @@
 					<td>${item.productionDate}</td>
 					<td>${item.expirationDate}</td>
 					<td>${item.soldAmount}</td>
+					<td>${item.quantity-item.soldAmount}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -93,6 +95,7 @@
 				<th>PROD-Date</th>
 				<th>EXP-Date</th>
 				<th>Sold QYT</th>
+				<th>Remain</th>
 			</tr>
 		</tfoot>
 

@@ -7,7 +7,7 @@
 
 <div>
 
-	<h4>Orders</h4>
+	<h4>Customer Orders</h4>
 	<hr>
 
 	<div>
@@ -42,38 +42,32 @@
 		<table id="customerOrdersTable" class="display nowrap">
 			<thead>
 				<tr>
-					<td>#</td>
-					<td>Vendor</td>
-					<td>Time</td>
-					<td>Reference</td>
-					<td>TotalPayment</td>
-					<td>Note</td>
-					<td class="cus-not-export">F</td>
+					<th>#</th>
+					<th>Customer</th>
+					<th>ReceivedBy</th>
+					<th>Time</th>
+					<th>Note</th>
+					<th class="cus-not-export">F</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${orders}" var="item">
+				<c:forEach items="${customerOrders}" var="item">
 					<tr>
 						<td>${item.id}</td>
 
-						<td>${item.vendor.name}</td>
-
+						<td>${item.customer.name}</td>
+						<td>${item.receivedBy}</td>
 						<td><fmt:formatDate value="${item.orderTime}"
 								pattern="yyyy-MM-dd hh:mm:ss" /></td>
-
-						<td>${item.reference}</td>
-
-						<td><fmt:formatNumber type="number" maxFractionDigits="3"
-								value="${item.totalPayment}" /></td>
 
 						<td class="cus-note-td" title="${item.note}">${item.note}</td>
 
 						<td><a class="btn btn-sm btn-outline-warning"
-							href="<c:url value="/orders/edit/" />${item.id}"> <i
+							href="<c:url value="/customerOrders/edit/" />${item.id}"> <i
 								class="fa fa-edit"></i>
 						</a>
 							<button class="btn btn-sm btn-outline-danger"
-								onclick="deleteOrder(${item.id})">
+								onclick="deleteCustomerOrder(${item.id})">
 								<i class="fa fa-times"></i>
 							</button></td>
 					</tr>
@@ -86,12 +80,11 @@
 			<tfoot>
 				<tr>
 					<th>#</th>
-					<th>Vendor</th>
+					<th>Customer</th>
+					<th>ReceivedBy</th>
 					<th>Time</th>
-					<th>Reference</th>
-					<th>TotalPayment</th>
 					<th>Note</th>
-					<th class="cus-not-export cus-not-search">&nbsp;</th>
+					<th class="cus-not-search">F</th>
 				</tr>
 			</tfoot>
 

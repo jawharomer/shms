@@ -192,6 +192,24 @@
 	<!--CustomerOrder -->
 	<!--CustomerOrder -->
 
+	<!--GetAllCustomerOrders -->
+	<definition name="getAllCustomerOrder" extends="adminRoot">
+		<put-attribute name="title" value="Orders" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/customerOrders.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles"
+			inherit="true">
+			<add-attribute value="customerOrders" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles"
+			inherit="true">
+			<add-attribute value="customerOrders" />
+		</put-list-attribute>
+	</definition>
+
+
 
 	<!--AddCustomerOrder -->
 	<definition name="addCustomerOrder" extends="adminRoot">
@@ -207,6 +225,24 @@
 		<put-list-attribute name="requiredJSFiles"
 			inherit="true">
 			<add-attribute value="addCustomerOrder" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!--EditCustomerOrder -->
+	<definition name="editCustomerOrder" extends="adminRoot">
+		<put-attribute name="title" value="orderDetails" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/editCustomerOrder.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles"
+			inherit="true">
+			<add-attribute value="editCustomerOrder" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles"
+			inherit="true">
+			<add-attribute value="editCustomerOrder" />
 		</put-list-attribute>
 	</definition>
 

@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<td>ReceivedBy</td>
-				<td><input ng-model="customerOrder.receivedBy"
+				<td><input required ng-model="customerOrder.receivedBy"
 					class="form-control  form-control-sm"></td>
 			</tr>
 

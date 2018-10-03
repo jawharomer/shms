@@ -11,6 +11,8 @@ public interface CustomerOrderDetailService {
 
 	List<CustomerOrderDetail> findAllByOrderTime(Date from, Date to);
 
-	void delete(int id);
+	
+
+	void delete(CustomerOrderDetail customerOrderDetail);
 
 }
