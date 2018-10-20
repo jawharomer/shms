@@ -15,7 +15,7 @@ public interface OrderDetailDAO extends CrudRepository<OrderDetail, Integer> {
 
 	@Query(value = "SELECT * FROM ORDER_DETAILS \n" + "INNER JOIN PRODUCTS  USING(I_PRODUCT)\n"
 			+ "WHERE QUANTITY-SOLD_AMOUNT>0\n" + "AND (EXPIRATION_DATE IS NULL OR EXPIRATION_DATE>CURDATE())\n"
-			+ "AND CODE= ?1 ORDER BY I_ORDER_DETAIL;", nativeQuery = true)
+			+ "AND CODE= ?1 ORDER BY I_ORDER_DETAIL LIMIT 1;", nativeQuery = true)
 	OrderDetail findByProductCode(String code);
 
 	@Modifying

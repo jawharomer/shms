@@ -11,7 +11,7 @@
 	<hr>
 
 	<div>
-		<form action="<c:url value="/orders" />">
+		<form action="<c:url value="/customerOrders" />">
 			<table>
 				<tr>
 					<td class="text-left">From</td>

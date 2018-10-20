@@ -7,9 +7,6 @@
 <div>
 	<div class="py-2">
 		<h3>Stock</h3>
-		<button class="btn btn-success" onclick="getAddingIncome()">
-			<i class="fa fa-plus"></i>
-		</button>
 
 	</div>
 
@@ -59,10 +56,10 @@
 				<th>Time</th>
 				<th>P-Code</th>
 				<th>P-Name</th>
-				<th>QYT</th>
 				<th>Payment</th>
 				<th>PROD-Date</th>
 				<th>EXP-Date</th>
+				<th>QYT</th>
 				<th>Sold QYT</th>
 				<th>Remain</th>
 			</tr>
@@ -75,10 +72,10 @@
 							pattern="yyyy-MM-dd hh:mm:ss" /></td>
 					<td>${item.product.code}</td>
 					<td>${item.product.name}</td>
-					<td>${item.quantity}</td>
 					<td>${item.paymentAmount}</td>
 					<td>${item.productionDate}</td>
 					<td>${item.expirationDate}</td>
+					<td>${item.quantity}</td>
 					<td>${item.soldAmount}</td>
 					<td>${item.quantity-item.soldAmount}</td>
 				</tr>

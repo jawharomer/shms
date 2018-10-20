@@ -63,7 +63,7 @@
 
 					<td><select ng-disabled="newOrderDetail.product.id" required class="form-control form-control-sm"
 						ng-model="newOrderDetail.product.productCategory.id"
-						ng-options="item.id as item.name for item in vendors">
+						ng-options="item.id as item.name for item in productCategories">
 							<option value=""></option>
 					</select></td>
 					<td><input type="number" min="1" required

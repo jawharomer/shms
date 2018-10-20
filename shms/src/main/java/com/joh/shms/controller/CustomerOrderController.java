@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,7 @@ import com.joh.shms.model.CustomerOrder;
 import com.joh.shms.model.Order;
 import com.joh.shms.service.CustomerOrderService;
 import com.joh.shms.service.CustomerService;
+import com.joh.shms.validator.CustomerOrderValidation;
 
 @Controller()
 @RequestMapping(path = "/customerOrders")
@@ -92,8 +94,9 @@ public class CustomerOrderController {
 	}
 
 	@PostMapping(path = "/add")
-	public String addCustomerOrder(@RequestBody @Valid CustomerOrder customerOrder, BindingResult result, Model model)
-			throws JsonProcessingException {
+	public String addCustomerOrder(
+			@RequestBody @Validated(CustomerOrderValidation.Insert.class) CustomerOrder customerOrder,
+			BindingResult result, Model model) throws JsonProcessingException {
 		logger.info("addCustomerOrder->fired");
 
 		logger.info("customerOrder=" + customerOrder);
