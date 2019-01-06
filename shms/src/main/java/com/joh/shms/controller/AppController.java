@@ -12,9 +12,13 @@ public class AppController {
 	@GetMapping("/login")
 	public String login() {
 		logger.info("login->fired");
+
 		return "login";
 	}
-	
-	
 
+	@GetMapping("/")
+	public String appRoot() {
+		logger.info("appRoot->fired");
+		return "redirect:/admin";
+	}
 }

@@ -41,7 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("inetshms").password("shms2018Inet").roles("SHMS");
+		auth.inMemoryAuthentication().withUser("inetshms").password("shms2018Inet").roles("SHMS")
+		.and().withUser("inetahms").password("ahms2018Inet").roles("SHMS");
 		// auth.userDetailsService(appUserDetailService).passwordEncoder(passwordEncoder());
 	}
 

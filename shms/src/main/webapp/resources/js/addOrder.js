@@ -2,11 +2,8 @@ $(document).ready()
 {
 	console.log("csrf=", csrf);
 
-	$("#expiration-date,#production-date").datepicker({
-		changeMonth : true,
-		changeYear : true,
-		dateFormat : "yy-mm-dd"
-	}).datepicker("setDate", new Date());
+	$("#expiration-date,#production-date").datepicker().datepicker("setDate",
+			new Date());
 
 }
 

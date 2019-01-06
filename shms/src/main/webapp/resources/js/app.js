@@ -1,7 +1,8 @@
 var $$ContextURL = "/shms";
 
 
-$.datepicker.setDefaults({ changeMonth: true,changeYear: true,yearRange: "-100:+0"});
+$.datepicker.setDefaults({dateFormat : "yy-mm-dd", changeMonth: true,changeYear: true,yearRange: "-100:+10"});
+
 
 
 $( function() {
